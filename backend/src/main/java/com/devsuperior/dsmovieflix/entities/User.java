@@ -136,8 +136,4 @@ public class User implements UserDetails, Serializable {
 		return true;
 	}
 
-	public boolean hasHole(String roleName) {
-		return roles.stream().anyMatch(role -> role.getAuthority().equals(roleName));
-	}
-
 }
