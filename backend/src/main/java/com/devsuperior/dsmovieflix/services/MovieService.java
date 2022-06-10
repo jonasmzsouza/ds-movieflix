@@ -1,5 +1,6 @@
 package com.devsuperior.dsmovieflix.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dsmovieflix.dto.MovieCardDTO;
 import com.devsuperior.dsmovieflix.dto.MovieDetailsDTO;
+import com.devsuperior.dsmovieflix.dto.ReviewDTO;
 import com.devsuperior.dsmovieflix.entities.Genre;
 import com.devsuperior.dsmovieflix.entities.Movie;
 import com.devsuperior.dsmovieflix.repositories.GenreRepository;
@@ -25,6 +27,7 @@ public class MovieService {
 	@Autowired
 	private GenreRepository genreRepository;
 	
+	
 	@Transactional(readOnly = true)
 	public MovieDetailsDTO findById(Long id) {
 		Optional<Movie> obj = repository.findById(id);
@@ -37,6 +40,13 @@ public class MovieService {
 		Genre genre = genreId > 0 ? genreRepository.getOne(genreId) : null;
 		Page<Movie> page = repository.findByGenre(genre, pageable);
 		return page.map(x -> new MovieCardDTO(x));
+	}
+
+	@Transactional(readOnly = true)
+	public List<ReviewDTO> findMovieReviews(Long id) {
+		Movie movie = repository.getOne(id);
+		List<ReviewDTO> reviews = repository.findMovieReviews(movie);
+		return reviews;
 	}
 
 }

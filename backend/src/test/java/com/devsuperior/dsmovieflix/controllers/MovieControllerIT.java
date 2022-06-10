@@ -195,4 +195,25 @@ public class MovieControllerIT {
 		result.andExpect(jsonPath("$.content[1].title").value("Kingsman"));
 		result.andExpect(jsonPath("$.content[2].title").value("Sonic"));
 	}
+	
+	@Test
+	public void findMovieReviewsShouldReturnListOfReviewsByMovieWhenMovieIdExists() throws Exception {
+
+		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
+
+		ResultActions result =
+				mockMvc.perform(get("/movies/{id}/reviews", existingId)
+					.header("Authorization", "Bearer " + accessToken)
+					.contentType(MediaType.APPLICATION_JSON));
+
+		result.andExpect(status().isOk());
+
+		result.andExpect(jsonPath("$[0].id").isNotEmpty());
+		result.andExpect(jsonPath("$[0].movieId").value(existingId));
+		result.andExpect(jsonPath("$[0].user.id").isNotEmpty());
+		result.andExpect(jsonPath("$[0].user.email").value(visitorUsername));
+
+		result.andExpect(jsonPath("$[1].movieId").value(existingId));
+		result.andExpect(jsonPath("$[1].user.email").value(visitorUsername));
+	}
 }

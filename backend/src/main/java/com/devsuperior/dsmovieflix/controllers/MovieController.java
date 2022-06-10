@@ -1,5 +1,7 @@
 package com.devsuperior.dsmovieflix.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dsmovieflix.dto.MovieCardDTO;
 import com.devsuperior.dsmovieflix.dto.MovieDetailsDTO;
+import com.devsuperior.dsmovieflix.dto.ReviewDTO;
 import com.devsuperior.dsmovieflix.services.MovieService;
 
 @RestController
@@ -34,6 +37,12 @@ public class MovieController {
 			@PageableDefault(sort = {"title"}) Pageable pageable) {
 		Page<MovieCardDTO> page = service.findByGenre(genreId, pageable);
 		return ResponseEntity.ok(page);
+	}
+	
+	@GetMapping(value = "/{id}/reviews")
+	public ResponseEntity<List<ReviewDTO>> findMovieReviews(@PathVariable Long id) {
+		List<ReviewDTO> dto = service.findMovieReviews(id);
+		return ResponseEntity.ok(dto);
 	}
 
 }
