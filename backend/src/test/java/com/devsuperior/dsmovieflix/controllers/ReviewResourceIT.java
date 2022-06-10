@@ -14,8 +14,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.devsuperior.dsmovieflix.dto.ReviewDTO;
 import com.devsuperior.dsmovieflix.tests.TokenUtil;
-import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
