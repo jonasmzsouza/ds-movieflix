@@ -1,0 +1,9 @@
+.review-listing-container {
+  padding: 20px 10px;
+}
+
+@media (min-width: 576px) {
+  .review-listing-container {
+    padding: 20px;
+  }
+}

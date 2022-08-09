@@ -1,11 +1,14 @@
 .btn-container button {
   width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
   height: 55px;
+  display: block;
   border-radius: 4px;
 }
 
 .btn-container h6 {
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 

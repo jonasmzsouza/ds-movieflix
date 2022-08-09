@@ -15,7 +15,7 @@ const Home = () => {
       </div>
       <div className="home-form-container">
         <div className="base-card login-card">
-          <h1>LOGIN</h1>
+          <h3>LOGIN</h3>
           <form>
             <div className="mb-4">
               <input

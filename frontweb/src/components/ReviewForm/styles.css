@@ -1,0 +1,15 @@
+.review-form-container {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.review-form-container form input,
+.review-form-container .login-submit button {
+  height: 50px;
+}
+
+@media (min-width: 576px) {
+  .review-form-container {
+    padding: 20px;
+  }
+}

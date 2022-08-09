@@ -1,0 +1,36 @@
+.movie-details-container {
+  padding: 20px;
+}
+
+.movie-details-container h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+@media (min-width: 576px) {
+  .movie-details-container {
+    padding: 30px;
+  }
+
+  .movie-details-container h2 {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .movie-details-container {
+    padding: 40px;
+  }
+
+  .movie-details-container h2 {
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-details-container h2 {
+    font-size: 48px;
+  }
+}
