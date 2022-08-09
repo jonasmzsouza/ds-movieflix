@@ -1,13 +1,13 @@
 import './assets/styles/custom.scss';
 import './App.css';
 import Navbar from 'components/Navbar';
-import Home from 'pages/Home';
+import MovieCatalog from 'pages/Private/MovieCatalog';
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <Home />
+      <MovieCatalog />
     </>
   );
 };

@@ -1,0 +1,43 @@
+.catalog-container {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.catalog-container h2 {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 1em;
+  letter-spacing: -0.015em;
+}
+
+.catalog-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog-content-container a {
+  color: #fff;
+  font-size: 0.6em;
+  margin: 0.4em 0;
+  line-height: 25px;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 576px) {
+  .catalog-container {
+    padding: 40px;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .catalog-container {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .catalog-container {
+    font-size: 48px;
+  }
+}
