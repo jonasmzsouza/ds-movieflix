@@ -1,6 +1,7 @@
 import Button from 'components/Button';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import { requestBackendLogin } from 'utils/requests';
 import { getAuthData, saveAuthData } from 'utils/storage';
 
@@ -20,6 +21,8 @@ const Login = () => {
     formState: { errors },
   } = useForm<FormData>();
 
+  const history = useHistory();
+
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
@@ -28,6 +31,7 @@ const Login = () => {
         console.log('TOKEN GERADO: ' + token);
         setHasError(false);
         console.log('SUCESSO', response);
+        history.push('/movies');
       })
       .catch((error) => {
         setHasError(true);
