@@ -1,5 +1,5 @@
 import { ReactComponent as HomeImage } from 'assets/images/home-image.svg';
-import Button from 'components/Button';
+import Login from './Login';
 
 import './styles.css';
 
@@ -14,30 +14,7 @@ const Home = () => {
         <HomeImage />
       </div>
       <div className="home-form-container">
-        <div className="base-card login-card">
-          <h3>LOGIN</h3>
-          <form>
-            <div className="mb-4">
-              <input
-                type="text"
-                className="form-control base-input"
-                placeholder="Email"
-                name="username"
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                className="form-control base-input"
-                placeholder="Senha"
-                name="password"
-              />
-            </div>
-            <div className="login-submit">
-              <Button text="Fazer login" />
-            </div>
-          </form>
-        </div>
+        <Login />
       </div>
     </div>
   );
