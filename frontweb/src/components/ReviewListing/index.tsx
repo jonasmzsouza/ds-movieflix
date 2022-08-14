@@ -1,12 +1,20 @@
 import ReviewCard from 'components/ReviewCard';
+import { Review } from 'types/review';
 import './styles.css';
 
-const ReviewListing = () => {
+type Props = {
+  reviews: Review[];
+};
+
+const ReviewListing = ({ reviews }: Props) => {
   return (
     <div className="base-card review-listing-container">
-      <ReviewCard />
-      <ReviewCard />
-      <ReviewCard />
+      {reviews.map((review) => {
+        return(
+          <ReviewCard review={review} key={review.id} />
+        );
+      })
+    }
     </div>
   );
 };

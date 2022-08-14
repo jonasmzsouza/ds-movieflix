@@ -1,15 +1,20 @@
 import { ReactComponent as Star } from 'assets/images/star.svg';
+import { Review } from 'types/review';
 import './styles.css';
 
-const ReviewCard = () => {
+type Props = {
+  review: Review;
+};
+
+const ReviewCard = ({ review }: Props) => {
   return (
     <div className="review-card-container">
       <div className="review-name-container">
         <Star />
-        <h3>Maria Silva</h3>
+        <h3>{review.user.name}</h3>
       </div>
       <div className="review-elavuation-container">
-        <p>Gostei muito do filme. Foi muito bom mesmo. Pena que durou pouco.</p>
+        <p>{review.text}</p>
       </div>
     </div>
   );
