@@ -29,11 +29,17 @@ const MovieDetails = () => {
       });
   }, [movieId]);
 
+  const handleInsertReview = (review: Review) => {
+    const clone = [...reviews];
+    clone.push(review);
+    setReviews(clone);
+  };
+
   return (
     <div className="movie-details-container">
       <h2>Tela detalhes do filme id: {movieId}</h2>
       {hasAnyRoles(['ROLE_MEMBER']) && (
-        <ReviewForm />
+        <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
       )}
       <ReviewListing reviews={reviews} />
     </div>

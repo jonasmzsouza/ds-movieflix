@@ -4,7 +4,7 @@
 }
 
 .review-form-container form input,
-.review-form-container .login-submit button {
+.review-form-container .review-submit button {
   height: 50px;
 }
 
