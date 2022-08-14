@@ -1,6 +1,7 @@
 import ReviewForm from 'components/ReviewForm';
 import ReviewListing from 'components/ReviewListing';
 import { useParams } from 'react-router-dom';
+import { hasAnyRoles } from 'utils/auth';
 import './styles.css';
 
 type UrlParams = {
@@ -13,7 +14,9 @@ const MovieDetails = () => {
   return (
     <div className="movie-details-container">
       <h2>Tela detalhes do filme id: {movieId}</h2>
-      <ReviewForm />
+      {hasAnyRoles(['ROLE_MEMBER']) && (
+        <ReviewForm />
+      )}
       <ReviewListing />
     </div>
   );
