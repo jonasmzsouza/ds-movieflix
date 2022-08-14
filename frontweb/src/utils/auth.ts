@@ -3,7 +3,7 @@ import { getAuthData } from './storage';
 
 type Role = 'ROLE_VISITOR' | 'ROLE_MEMBER';
 
-type TokenData = {
+export type TokenData = {
   exp: number;
   user_name: string;
   authorities: Role[];
