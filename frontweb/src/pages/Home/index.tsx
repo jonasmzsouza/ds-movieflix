@@ -1,12 +1,9 @@
 import { ReactComponent as HomeImage } from 'assets/images/home-image.svg';
-import { useContext } from 'react';
-import { AuthContext } from 'AuthContext';
 import Login from './Login';
 
 import './styles.css';
 
 const Home = () => {
-  const { authContextData } = useContext(AuthContext);
 
   return (
     <div className="home-container">
@@ -18,7 +15,7 @@ const Home = () => {
         <HomeImage />
       </div>
       <div className="home-form-container">
-        {!authContextData.authenticated && <Login />}
+        <Login />
       </div>
     </div>
   );
