@@ -25,19 +25,27 @@
 
 @media (min-width: 576px) {
   .catalog-container {
-    padding: 40px;
     font-size: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .catalog-container {
+    padding: 40px;
   }
 }
 
 @media (min-width: 992px) {
   .catalog-container {
+    padding: 40px;
     font-size: 40px;
   }
 }
 
 @media (min-width: 1200px) {
   .catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
     font-size: 48px;
   }
 }

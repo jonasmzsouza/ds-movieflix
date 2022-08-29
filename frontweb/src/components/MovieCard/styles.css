@@ -1,0 +1,31 @@
+.movie-card {
+  font-size: 16px;
+  padding: 25px 0 50px 0;
+}
+
+.card-top-container img {
+  width: 100%;
+}
+
+.card-bottom-container {
+  padding: 15px;
+}
+
+.card-bottom-container h5 {
+  font-weight: 700;
+  font-size: 1.25em;
+  letter-spacing: -0.015em;
+}
+
+.card-bottom-container strong {
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: -0.015em;
+  color: #ffc700;
+}
+
+.card-bottom-container h6 {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+}
