@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import MovieCard from 'components/MovieCard';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
@@ -31,21 +32,28 @@ const MovieCatalog = () => {
   };
 
   return (
-    <div className="catalog-container">
-      <div className="row">
-        {page?.content.map((movie) => {
-          return (
-            <div className="col-sm-6 col-xl-3 my-1" key={movie.id}>
-              <div className="catalog-content-container">
-                <Link to={`/movies/${movie.id}`}>
-                  <MovieCard movie={movie} />
-                </Link>
+    <>
+      <div className="catalog-container">
+        <div className="row">
+          {page?.content.map((movie) => {
+            return (
+              <div className="col-sm-6 col-xl-3 my-1" key={movie.id}>
+                <div className="catalog-content-container">
+                  <Link to={`/movies/${movie.id}`}>
+                    <MovieCard movie={movie} />
+                  </Link>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
+      <Pagination
+          pageCount={page ? page?.totalPages : 0}
+          range={3}
+          onChange={getMovies}
+        />
+    </>
   );
 };
 
