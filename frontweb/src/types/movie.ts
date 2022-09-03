@@ -6,6 +6,6 @@ export type Movie = {
   subTitle: string;
   year: number;
   imgUrl: string;
-  synopsis?: string;
-  genre?: Genre;
+  synopsis: string;
+  genre: Genre;
 };

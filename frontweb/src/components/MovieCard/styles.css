@@ -18,7 +18,8 @@
   letter-spacing: -0.015em;
 }
 
-.card-bottom-container strong {
+.card-bottom-container span {
+  display: block;
   font-weight: 700;
   font-size: 1em;
   letter-spacing: -0.015em;

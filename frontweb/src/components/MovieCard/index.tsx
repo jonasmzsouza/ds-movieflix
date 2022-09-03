@@ -13,7 +13,7 @@ const MovieCard = ({ movie }: Props) => {
       </div>
       <div className="card-bottom-container">
         <h5>{movie.title}</h5>
-        <strong>{movie.year}</strong>
+        <span>{movie.year}</span>
         <h6>{movie.subTitle}</h6>
       </div>
     </div>

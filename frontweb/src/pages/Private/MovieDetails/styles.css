@@ -1,12 +1,59 @@
 .movie-details-container {
   padding: 20px;
+  font-size: 20px;
 }
 
 .movie-details-container h2 {
   color: #fff;
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 1rem;
   letter-spacing: -0.015em;
+}
+
+.movie-details-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.movie-details-img-container img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.movie-details-info-container h5 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: -0.015em;
+}
+
+.movie-details-info-container span {
+  display: block;
+  font-weight: 700;
+  font-size: 0.7em;
+  letter-spacing: -0.015em;
+  color: #ffc700;
+}
+
+.movie-details-info-container h6 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 0.7em;
+  letter-spacing: -0.015em;
+  margin-bottom: 15px;
+}
+
+.movie-details-info-container p {
+  padding: 10px;
+  margin: 0;
+  font-size: 0.7em;
+  letter-spacing: -0.015em;
+  color: #9E9E9E;
+  border: 1px solid #E1E1E1;
+  border-radius: 10px;
+  text-align: justify;
 }
 
 @media (min-width: 576px) {
@@ -19,6 +66,30 @@
   }
 }
 
+@media (min-width: 768px) {
+  .movie-details-container {
+    font-size: 36px;
+  }
+
+  .movie-details-card {
+    padding: 40px;
+  }
+
+  .movie-details-info-container span {
+    font-size: 0.66em;
+  }
+
+  .movie-details-info-container h6 {
+    font-size: 0.66em;
+    margin-bottom: 40px;
+  }
+
+  .movie-details-info-container p {
+    padding: 15px;
+    font-size: 0.5em;
+  }
+}
+
 @media (min-width: 992px) {
   .movie-details-container {
     padding: 40px;
@@ -28,10 +99,37 @@
     margin-bottom: 30px;
     font-size: 40px;
   }
+
+  .movie-details-img-container {
+    width: 610px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 1200px) {
+  .movie-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   .movie-details-container h2 {
     font-size: 48px;
   }
+
+  .movie-details-card {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .movie-details-img-container {
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .movie-details-info-container {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
 }
