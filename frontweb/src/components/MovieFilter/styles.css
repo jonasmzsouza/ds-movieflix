@@ -1,0 +1,70 @@
+.movie-filter-container {
+  padding: 20px 10px;
+}
+
+.movie-filter-card {
+  padding: 5px 20px;
+}
+
+.movie-filter-genre-container {
+  max-width: 260px;
+}
+
+.movie-filter-select__control {
+  background-color: transparent !important;
+  border: 1px solid #e1e1e1 !important;
+  border-radius: 4px !important;
+  height: 50px !important;
+}
+
+.movie-filter-select__single-value {
+  font-size: 16px !important;
+  letter-spacing: -0.015em !important;
+  color: #ffffff !important;
+}
+
+.movie-filter-select__placeholder {
+  color: #9e9e9e !important;
+}
+
+.movie-filter-select__indicator-separator {
+  display: none;
+}
+
+.movie-filter-select__indicator {
+  padding: 5px !important;
+  color: #9e9e9e !important;
+}
+
+.movie-filter-select__indicator svg {
+  width: 25px;
+  height: auto;
+}
+
+.movie-filter-select__clear-indicator {
+  color: #9e9e9e !important;
+}
+
+.movie-filter-select__control--is-focused {
+  box-shadow: none !important;
+}
+
+@media (min-width: 576px) {
+  .movie-filter-container {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-filter-container {
+    padding: 40px;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-filter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
