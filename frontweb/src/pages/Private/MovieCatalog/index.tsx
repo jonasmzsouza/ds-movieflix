@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'utils/requests';
+import MovieCardLoaderDesk from './MovieCardLoaderDesk';
+import MovieCardLoaderMobile from './MovieCardLoaderMobile';
 import './styles.css';
 
 type ControlComponentData = {
@@ -16,6 +18,7 @@ type ControlComponentData = {
 
 const MovieCatalog = () => {
   const [page, setPage] = useState<SpringPage<Movie>>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [controlComponentData, setControlComponentData] =
     useState<ControlComponentData>({
@@ -46,9 +49,14 @@ const MovieCatalog = () => {
       withCredentials: true,
     };
 
-    requestBackend(config).then((response) => {
-      setPage(response.data);
-    });
+    setIsLoading(true);
+    requestBackend(config)
+      .then((response) => {
+        setPage(response.data);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [controlComponentData]);
 
   useEffect(() => {
@@ -60,17 +68,24 @@ const MovieCatalog = () => {
       <MovieFilter onSubmitFilter={handleSubmitFilter} />
       <div className="catalog-container">
         <div className="row">
-          {page?.content.map((movie) => {
-            return (
-              <div className="col-sm-6 col-xl-3 mb-4" key={movie.id}>
-                <div className="catalog-content-container">
-                  <Link to={`/movies/${movie.id}`}>
-                    <MovieCard movie={movie} />
-                  </Link>
+          {isLoading ? (
+            <>
+              <MovieCardLoaderMobile />
+              <MovieCardLoaderDesk />
+            </>
+          ) : (
+            page?.content.map((movie) => {
+              return (
+                <div className="col-sm-6 col-xl-3 mb-4" key={movie.id}>
+                  <div className="catalog-content-container">
+                    <Link to={`/movies/${movie.id}`}>
+                      <MovieCard movie={movie} />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
       <Pagination

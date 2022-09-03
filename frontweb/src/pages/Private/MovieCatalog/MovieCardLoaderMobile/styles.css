@@ -1,0 +1,9 @@
+.movie-card-loader-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .movie-card-loader-mobile {
+    display: none;
+  }
+}

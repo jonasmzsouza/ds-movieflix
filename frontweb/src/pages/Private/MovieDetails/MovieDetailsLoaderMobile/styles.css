@@ -1,0 +1,9 @@
+.movie-details-loader-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .movie-details-loader-mobile {
+    display: none;
+  }
+}

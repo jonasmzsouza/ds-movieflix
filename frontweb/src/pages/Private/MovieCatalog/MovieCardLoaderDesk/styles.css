@@ -1,0 +1,9 @@
+.movie-card-loader-desk {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .movie-card-loader-desk {
+    display: block;
+  }
+}
