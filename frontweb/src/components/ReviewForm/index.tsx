@@ -29,7 +29,7 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
     formData.movieId = parseInt(movieId);
 
     if (formData.text.trim().length === 0) {
-      toast.warning('O campo text não pode estar em branco!', {
+      toast.warning('Campo text não pode estar vazio!', {
         theme: 'dark',
       });
       return;
