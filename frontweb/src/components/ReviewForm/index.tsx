@@ -1,8 +1,10 @@
 import { AxiosRequestConfig } from 'axios';
 import Button from 'components/Button';
-import { useForm } from 'react-hook-form';
+import { FieldErrorsImpl, useForm } from 'react-hook-form';
 import { Review } from 'types/review';
 import { requestBackend } from 'utils/requests';
+import { toast } from 'react-toastify';
+
 import './styles.css';
 
 type Props = {
@@ -26,6 +28,13 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
   const onSubmit = (formData: FormData) => {
     formData.movieId = parseInt(movieId);
 
+    if (formData.text.trim().length === 0) {
+      toast.warning('O campo text não pode estar em branco!', {
+        theme: 'dark',
+      });
+      return;
+    }
+
     const config: AxiosRequestConfig = {
       method: 'POST',
       url: '/reviews',
@@ -37,17 +46,30 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
       .then((response) => {
         setValue('text', '');
         onInsertReview(response.data);
+        toast.success('Avaliação cadastrada com sucesso!', {
+          theme: 'dark',
+        });
       })
-      .catch((error) => {});
+      .catch((error) => {
+        toast.error('Erro ao cadastrar a avaliação', {
+          theme: 'dark',
+        });
+      });
+  };
+
+  const onError = (errors: FieldErrorsImpl<FormData>) => {
+    toast.warning(errors.text?.message, {
+      theme: 'dark',
+    });
   };
 
   return (
     <div className="base-card review-form-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <div className="mb-4">
           <input
             {...register('text', {
-              required: 'Campo obrigatório',
+              required: 'Campo text obrigatório',
             })}
             type="text"
             className={`form-control base-input ${
